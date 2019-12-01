@@ -1,19 +1,17 @@
-<div class="contaner">
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <h2>multimedia manager center</h2>
+<div class="container">
+  <div class="row my-2">
+    <div class="col align-self-start">
+      <h4>multimedia manager center</h4>
     </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col align-self-end text-right">
       <a routerLink="/dashboard" class="badge mr-2" 
-         [class.badge-primary]="currentContent == 'dashboard'"
-         (click)="onSelecteContent('dashboard')">
-         <h4>Dashboard</h4>
+          [class.badge-primary]="currentContent == 'dashboard'"
+          (click)="onSelecteContent('dashboard')">
+          <h4>Dashboard</h4>
       </a>
       <a routerLink="/videos" class="badge"
-         [class.badge-primary]="currentContent == 'videos'"
-         (click)="onSelecteContent('videos')">   
+          [class.badge-primary]="currentContent == 'videos'"
+          (click)="onSelecteContent('videos')">   
         <h4>videos</h4>
       </a>
     </div>

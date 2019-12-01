@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Video } from '../models/video';
 import { VideoService } from '../services/video.service'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VideoUploaderComponent } from '../video-uploader/video-uploader.component'
 
 @Component({
   selector: 'app-videos',
@@ -11,7 +13,8 @@ export class VideosComponent implements OnInit {
 
   private videos: Video[] = [];
 
-  constructor(private videoService: VideoService) { }
+  constructor(private videoService: VideoService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getVideos();
@@ -20,6 +23,16 @@ export class VideosComponent implements OnInit {
   getVideos(): void {
     this.videoService.getVideos()
       .subscribe(videos => this.videos = videos)
+  }
+
+  openFormModal() {
+    const modalRef = this.modalService.open(VideoUploaderComponent);
+    
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }

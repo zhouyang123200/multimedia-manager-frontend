@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Modal Title</h4>
+  <button type="button" class="close" aria-label="Close" p-0
+   (click)="activeModal.dismiss('Cross click')">
+    <svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M5.646 5.646a.5.5 0 000 .708l8 8a.5.5 0 00.708-.708l-8-8a.5.5 0 00-.708 0z" clip-rule="evenodd"></path>
+      <path fill-rule="evenodd" d="M14.354 5.646a.5.5 0 010 .708l-8 8a.5.5 0 01-.708-.708l8-8a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+</div>
+<div class="modal-body">
+  <p>My modal content</p>
+</div>
+<div class="modal-footer">
+  <button (click)="activeModal.dismiss('Close clicked')">
+    Close Clicked
+  </button>
+</div>

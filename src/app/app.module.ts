@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VideosComponent } from './videos/videos.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
+import { VideoUploaderComponent } from './video-uploader/video-uploader.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     VideosComponent,
-    VideoDetailsComponent
+    VideoDetailsComponent,
+    VideoUploaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    VideoUploaderComponent 
+  ]
 })
 export class AppModule { }

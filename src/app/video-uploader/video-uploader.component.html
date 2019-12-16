@@ -22,10 +22,31 @@
           <input type="password" class="form-control"
           formControlName="password"/>
         </div>
+         <div class="form-group">
+          <a class="btn btn-outline-secondary m-2" role="button" (click)="videoFile.click()">Select Video</a>
+          <a class="btn btn-outline-secondary m-2" role="button" (click)="imageFile.click()">Select Image</a>
+          <input style="display: none;" type="file" class="form-control"
+           (change)="videoFileChange($event.target.files)" #videoFile/>
+          <input style="display: none;" type="file" class="form-control" 
+           (change)="imageFileChange($event.target.files)" #imageFile/>
+          <div *ngIf="videoSelected" class="mb-2 row align-items-center">
+            <div class="col-3"><span>video:</span></div>
+            <div class="col-9">
+               <ngb-progressbar showValue="true" type="success" [value]="videoUploadPercent"></ngb-progressbar>
+            </div>
+          </div>
+          <div *ngIf="imageSelected" class="mb-2 row align-items-center">
+            <div class="col-3"><span>image:</span></div>
+            <div class="col-9">
+              <ngb-progressbar showValue="true" type="success" [value]="imageUploadPercent"></ngb-progressbar>
+            </div>
+          </div>
+        </div>
+
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-success"
+    <button class="btn btn-success" type="submit"
         [disabled]="!myForm.valid">
         Submit Form
       </button>

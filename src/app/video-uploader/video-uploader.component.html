@@ -25,6 +25,7 @@
          <div class="form-group">
           <a class="btn btn-outline-secondary m-2" role="button" (click)="videoFile.click()">Select Video</a>
           <a class="btn btn-outline-secondary m-2" role="button" (click)="imageFile.click()">Select Image</a>
+          <a class="btn btn-outline-secondary m-2" role="button" (click)="uploadAllFiles()">Upload Files</a>
           <input style="display: none;" type="file" class="form-control"
            (change)="videoFileChange($event.target.files)" #videoFile/>
           <input style="display: none;" type="file" class="form-control" 

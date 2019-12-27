@@ -12,15 +12,15 @@
   <div class="modal-body">
     <div class="container">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="title">title</label>
           <input type="text" 
             class="form-control"
-            formControlName="username" />
+            formControlName="title" />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control"
-          formControlName="password"/>
+          <label for="description">description</label>
+          <input type="description" class="form-control"
+          formControlName="description"/>
         </div>
          <div class="form-group">
           <a class="btn btn-outline-secondary m-2" role="button" (click)="videoFile.click()">Select Video</a>
@@ -33,13 +33,13 @@
           <div *ngIf="videoSelected" class="mb-2 row align-items-center">
             <div class="col-3"><span>video:</span></div>
             <div class="col-9">
-               <ngb-progressbar showValue="true" type="success" [value]="videoUploadPercent"></ngb-progressbar>
+               <ngb-progressbar showValue="true" type="success" [value]="videoUploadInfo.percent"></ngb-progressbar>
             </div>
           </div>
           <div *ngIf="imageSelected" class="mb-2 row align-items-center">
             <div class="col-3"><span>image:</span></div>
             <div class="col-9">
-              <ngb-progressbar showValue="true" type="success" [value]="imageUploadPercent"></ngb-progressbar>
+              <ngb-progressbar showValue="true" type="success" [value]="imageUploadInfo.percent"></ngb-progressbar>
             </div>
           </div>
         </div>

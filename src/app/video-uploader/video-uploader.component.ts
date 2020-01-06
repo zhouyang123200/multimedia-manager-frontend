@@ -22,7 +22,7 @@ export class VideoUploaderComponent implements OnInit {
   closeResult: string;
   @Input()id: number;
   myForm: FormGroup;
-  videoUrl: string = 'http://localhost:4200/api/videos';
+  videoUrl: string = 'http://localhost/api/videos';
   videoUploadInfo: FileUploadInfo = {
     fileObj: null,
     percent: 0,
@@ -103,7 +103,7 @@ export class VideoUploaderComponent implements OnInit {
   uploadAllFiles(): void {
     if (this.videoUploadInfo.fileObj) {
       this.fileUploader.upload(this.videoUploadInfo.fileObj,
-         'http://localhost:4200/api/files').pipe(
+         'http://localhost/api/files').pipe(
             map(evt => this.uploadEventMsg(evt, this.videoUploadInfo)),
             tap(msg => console.log(msg)),
             last()
@@ -111,7 +111,7 @@ export class VideoUploaderComponent implements OnInit {
     }  
     if (this.imageUploadInfo.fileObj) {
       this.fileUploader.upload(this.imageUploadInfo.fileObj,
-        'http://localhost:4200/api/files').pipe(
+        'http://localhost/api/files').pipe(
           map(evt => this.uploadEventMsg(evt, this.imageUploadInfo)),
           tap(msg => console.log(msg)),
           last()

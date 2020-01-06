@@ -22,7 +22,7 @@ export class VideosComponent implements OnInit {
 
   getVideos(): void {
     this.videoService.getVideos()
-      .subscribe(videos => this.videos = videos)
+      .subscribe(videos => {console.log(videos);this.videos = videos;})
   }
 
   openFormModal() {

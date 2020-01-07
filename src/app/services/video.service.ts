@@ -12,8 +12,14 @@ export class VideoService {
 
   constructor(private http: HttpClient) { }
 
-  getVideos(): Observable<any> {
+  getVideos(): Observable<Video[]> {
     const url = '/api/videos'
+    const req = new HttpRequest('GET', url);
+    return this.http.get<Video[]>(url)
+  }
+
+  getVideo(id: number): Observable<Video> {
+    const url = `/api/video/${id}`
     const req = new HttpRequest('GET', url);
     return this.http.get<Video>(url)
   }

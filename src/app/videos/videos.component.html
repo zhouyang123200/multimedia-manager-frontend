@@ -16,7 +16,11 @@
         <div class="card my-2">
             <img [src]="video.imageUrl" alt="" class="card-img-top">
             <div class="card-body">
-                <h5>{{video.title}}</h5>
+                <div class="d-flex justify-content-between">
+                    <h5>{{video.title}}</h5>
+                    <a  routerLink="/video/{{video.id}}" type="button"
+                     class="btn btn-outline-secondary">play</a>
+                </div>
                 <p>{{video.description}}</p>
             </div>
         </div>

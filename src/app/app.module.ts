@@ -10,6 +10,11 @@ import { VideosComponent } from './videos/videos.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
 import { VideoUploaderComponent } from './video-uploader/video-uploader.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// add angular video module
+import {VgCoreModule} from 'videogular2/compiled/core';
+import {VgControlsModule} from 'videogular2/compiled/controls';
+import {VgOverlayPlayModule} from 'videogular2/compiled/overlay-play';
+import {VgBufferingModule} from 'videogular2/compiled/buffering';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

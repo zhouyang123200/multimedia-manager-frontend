@@ -1,9 +1,7 @@
-<div class="col-md-3">
-    <div class="card my-2">
-        <img [src]="video.imageUrl" alt="" class="card-img-top">
-        <div class="card-body">
-            <h5>{{video.title}}</h5>
-            <p>{{video.description}}</p>
-        </div>
-    </div>
+<div *ngIf="video">
+    <vg-player>
+        <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
+            <source [src]="video.videoUrl" type="video/mp4">
+        </video>
+    </vg-player>
 </div>

@@ -5,41 +5,47 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { VideosComponent } from './videos/videos.component';
-import { VideoDetailsComponent } from './video-details/video-details.component';
-import { VideoUploaderComponent } from './video-uploader/video-uploader.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { DashboardComponent } from './dashboard/dashboard.component';
+// import { VideosComponent } from './videos/videos.component';
+// import { VideoDetailsComponent } from './video-details/video-details.component';
+// import { VideoUploaderComponent } from './video-uploader/video-uploader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 // add angular video module
-import {VgCoreModule} from 'videogular2/compiled/core';
-import {VgControlsModule} from 'videogular2/compiled/controls';
-import {VgOverlayPlayModule} from 'videogular2/compiled/overlay-play';
-import {VgBufferingModule} from 'videogular2/compiled/buffering';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    VideosComponent,
-    VideoDetailsComponent,
-    VideoUploaderComponent
+    // DashboardComponent,
+    // VideosComponent,
+    // VideoDetailsComponent,
+    // VideoUploaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [
-    VideoUploaderComponent 
-  ]
+  // entryComponents: [
+  //   VideoUploaderComponent
+  // ]
 })
 export class AppModule { }

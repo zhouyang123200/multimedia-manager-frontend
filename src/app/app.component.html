@@ -4,18 +4,37 @@
       <h4>multimedia manager center</h4>
     </div>
     <div class="col align-self-end text-right">
-      <a routerLink="/dashboard" class="badge mr-2" 
-          [class.badge-primary]="currentContent == 'dashboard'"
+      <a routerLink="/dashboard" class="badge mr-2"
           (click)="onSelecteContent('dashboard')">
           <h4>Dashboard</h4>
       </a>
       <a routerLink="/videos" class="badge"
-          [class.badge-primary]="currentContent == 'videos'"
-          (click)="onSelecteContent('videos')">   
+          (click)="onSelecteContent('videos')">
         <h4>videos</h4>
       </a>
     </div>
   </div>
+
+  <button mat-raised-button>Raised button</button>
+  <button mat-flat-button>Flat button</button>
+  <button mat-stroked-button>Stroked button</button>
+  <button mat-icon-button>
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-fab>
+    <mat-icon>delete</mat-icon>
+  </button>
+  <mat-button-toggle-group>
+    <mat-button-toggle value="left">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 
   <router-outlet></router-outlet>
 </div>

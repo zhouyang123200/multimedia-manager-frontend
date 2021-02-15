@@ -27,7 +27,7 @@ export class VideosComponent implements OnInit {
 
   openFormModal() {
     const modalRef = this.modalService.open(VideoUploaderComponent);
-    
+
     modalRef.result.then((result) => {
       console.log(result);
     }).catch((error) => {

@@ -25,3 +25,17 @@
 .col:last-child {
   margin-right: 0;
 }
+
+.container {
+  background-color: aquamarine;
+  width: auto;
+  height: 100%;
+}
+
+.container form {
+  position: relative;
+  margin: auto;
+  width: 500px;
+  padding: 10px;
+  top:10%;
+}

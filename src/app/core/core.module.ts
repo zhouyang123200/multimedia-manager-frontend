@@ -33,6 +33,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatCardModule,
     ReactiveFormsModule
   ],
-  exports: [LoginComponent]
+  exports: [LoginComponent, SignUpComponent]
 })
 export class CoreModule { }

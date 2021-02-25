@@ -26,13 +26,7 @@
   margin-right: 0;
 }
 
-.container {
-  background-color: aquamarine;
-  width: auto;
-  height: 100%;
-}
-
-.container form {
+form {
   position: relative;
   margin: auto;
   width: 500px;

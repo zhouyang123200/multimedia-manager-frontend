@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,11 +13,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { NavHeaderComponent } from './nav-header/nav-header.component';
 
 
 
 @NgModule({
-  declarations: [NavHeaderComponent, LoginComponent, SignUpComponent],
+  declarations: [LoginComponent, SignUpComponent, NavHeaderComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -33,6 +33,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatCardModule,
     ReactiveFormsModule
   ],
-  exports: [LoginComponent, SignUpComponent]
+  exports: [NavHeaderComponent, LoginComponent, SignUpComponent]
 })
 export class CoreModule { }

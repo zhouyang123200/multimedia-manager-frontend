@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavHeaderComponent } from './nav-header.component';
+import { VideoListComponent } from './video-list.component';
 
-describe('NavHeaderComponent', () => {
-  let component: NavHeaderComponent;
-  let fixture: ComponentFixture<NavHeaderComponent>;
+describe('VideoListComponent', () => {
+  let component: VideoListComponent;
+  let fixture: ComponentFixture<VideoListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavHeaderComponent ]
+      declarations: [ VideoListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavHeaderComponent);
+    fixture = TestBed.createComponent(VideoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

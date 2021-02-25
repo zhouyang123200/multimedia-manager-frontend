@@ -7,16 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title:string = 'multimedia-manager-frontend';
-  private currentContent:string;
+  isAuthenticated:boolean;
 
   constructor(
   ) {}
 
   ngOnInit() {
-    this.currentContent = 'dashboard';
-  }
-
-  onSelecteContent(content: string):void {
-    this.currentContent = content;
+    this.isAuthenticated = true;
   }
 }

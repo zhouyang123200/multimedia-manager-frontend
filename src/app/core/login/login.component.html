@@ -1,37 +1,35 @@
-<div class="container">
-  <div class="center">
-    <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
-      <mat-card class="shipping-card">
-        <mat-card-header>
-          <mat-card-title>Multimedia Manager</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="row">
-            <div class="col">
-              <mat-form-field class="full-width">
-                <input matInput placeholder="username" formControlName="username">
-                <mat-error *ngIf="addressForm.controls['username'].hasError('required')">
-                  username is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-            </div>
+<div class="center">
+  <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <mat-card-title>Multimedia Manager</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="username" formControlName="username">
+              <mat-error *ngIf="addressForm.controls['username'].hasError('required')">
+                username is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
           </div>
-          <div class="row">
-            <div class="col">
-              <mat-form-field class="full-width">
-                <input matInput placeholder="password" type="password" formControlName="password">
-                <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
-                  Address is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="password" type="password" formControlName="password">
+              <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
+                Address is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
           </div>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" type="submit">Log In</button>
-          <button mat-button (click)="goSignUp()">Sign Up</button>
-        </mat-card-actions>
-      </mat-card>
-    </form>
-  </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Log In</button>
+        <button mat-button (click)="goSignUp()">Sign Up</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
 </div>

@@ -1,47 +1,45 @@
-<div class="container">
-  <form [formGroup]="signUpForm" novalidate (ngSubmit)="onSubmit()">
-    <mat-card class="shipping-card">
-      <mat-card-header>
-        <mat-card-title>Create your account</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Username" formControlName="username">
-              <mat-error *ngIf="signUpForm.controls['username'].hasError('required')">
-                Username is required
-              </mat-error>
-            </mat-form-field>
-          </div>
+<form [formGroup]="signUpForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Create your account</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="signUpForm.controls['username'].hasError('required')">
+              Username is required
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="email" matInput placeholder="Email" formControlName="email">
-              <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">
-                Email is required
-              </mat-error>
-              <mat-error *ngIf="signUpForm.controls['email'].hasError('email')">
-                Please enter a valid email address
-              </mat-error>
-            </mat-form-field>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="email" matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="signUpForm.controls['email'].hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="row">
-          <div class="col">
-            <mat-form-field class="full-width">
-              <input type="password" matInput placeholder="Password" formControlName="password">
-              <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">
-                Password is required
-              </mat-error>
-            </mat-form-field>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input type="password" matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
         </div>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">create account</button>
-      </mat-card-actions>
-    </mat-card>
-  </form>
-</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">create account</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

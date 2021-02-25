@@ -1,21 +1,26 @@
-.sidenav-container {
-  height: 100%;
-}
-
-.sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
 .nav-spacer {
     flex: 1 1 auto;
+}
+
+.nav-bar {
+    display: flex;
+    background-color: #333;
+}
+
+.nav-bar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.nav-bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.active {
+    background-color: rgb(163, 136, 136);
+    color: black;
 }

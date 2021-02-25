@@ -1,21 +1,15 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-nav-header',
+  selector: 'nav-header',
   templateUrl: './nav-header.component.html',
   styleUrls: ['./nav-header.component.css']
 })
-export class NavHeaderComponent {
+export class NavHeaderComponent implements OnInit {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  constructor() { }
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  ngOnInit(): void {
+  }
 
 }

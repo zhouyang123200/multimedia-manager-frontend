@@ -13,6 +13,6 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    this.isAuthenticated = true;
+    this.isAuthenticated = false;
   }
 }

@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { LoginComponent } from './login.component';
 
@@ -25,7 +26,8 @@ describe('LoginComponent', () => {
         MatInputModule,
         MatRadioModule,
         MatSelectModule,
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ]
     }).compileComponents();
   }));

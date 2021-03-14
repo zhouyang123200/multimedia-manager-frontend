@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BrowserStorageService } from './browser-storage.service';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators'
+import { tap, map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserAuthenticationService {
 
-  private loginUrl = 'api/authtoken/'
+  private loginUrl = 'api/authtoken'
 
   constructor(
     private browserStorageService: BrowserStorageService,
@@ -27,8 +27,10 @@ export class UserAuthenticationService {
       passwd
     }
     return this.http.post<{access_token: string}>(this.loginUrl, userInfo).pipe(
-      tap(token => this.browserStorageService.
-                          set('accsess_token', token))
+      map(tokenObj => tokenObj.access_token),
+      tap(token => {
+        this.browserStorageService.set('access_token', token);
+      })
     );
   }
 }

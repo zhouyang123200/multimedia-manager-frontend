@@ -9,7 +9,9 @@ describe('UserAuthenticationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
+      imports: [
+        HttpClientTestingModule,
+      ]
     });
     service = TestBed.inject(UserAuthenticationService);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -17,5 +19,26 @@ describe('UserAuthenticationService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should check whether login', () => {
+    expect(service.checkLogin()).toBe(false);
+  });
+
+  it('should login', (done: DoneFn) => {
+    const userInfo = {
+      username: 'username',
+      passwd: '11111'
+    };
+    service.login(userInfo.username, userInfo.passwd).subscribe(
+      token => {
+        expect(token).toBe('1234');
+        done();
+      }
+    );
+    const req = httpTestingController.expectOne('api/authtoken');
+    expect(req.request.method).toEqual('POST');
+    expect(req.request.body).toEqual(userInfo);
+    req.flush({access_token: '1234'});
   });
 });

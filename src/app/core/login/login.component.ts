@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router'
+import { UserAuthenticationService } from "@utils/user-authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,19 @@ export class LoginComponent {
     password: [null, Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private router:Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router:Router,
+    private authService: UserAuthenticationService
+  ) {}
 
   onSubmit() {
-    alert('Thanks!');
+    this.authService.login('user', 'passwd').subscribe(
+      token => {
+        console.log(token);
+        alert(token.access_token);
+      }
+    )
   }
 
   goSignUp() {

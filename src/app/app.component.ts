@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserAuthenticationService } from './core/utils/user-authentication.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title:string = 'multimedia-manager-frontend';
-  isAuthenticated:boolean;
+  isAuthenticated:boolean = false;
 
   constructor(
-  ) {}
+    private userAuthService: UserAuthenticationService,
+    private router:Router
+    ) {}
 
   ngOnInit() {
-    this.isAuthenticated = true;
+    this.isAuthenticated = this.userAuthService.checkLogin();
+    console.log(`isAuth: ${this.isAuthenticated}`);
+    this.router.navigate(['/login']);
   }
 }

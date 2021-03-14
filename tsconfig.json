@@ -17,7 +17,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@utils/*": ["./src/app/core/utils/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

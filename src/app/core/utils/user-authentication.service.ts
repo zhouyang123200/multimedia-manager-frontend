@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BrowserStorageService } from './browser-storage.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators'
@@ -17,8 +17,8 @@ export class UserAuthenticationService {
     ) { }
 
   checkLogin():boolean {
-    let isAuthenticated = this.browserStorageService.get('isAuthenticated');
-    return isAuthenticated === 'true';
+    let accsess_token = this.browserStorageService.get('accsess_token');
+    return accsess_token !== null;
   }
 
   login(username: string, passwd: string): Observable<any> {

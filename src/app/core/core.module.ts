@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,12 +22,13 @@ import { VideosModule } from '../videos/videos.module'
 import { DataService } from './utils/data.service'
 
 
+const routes: Routes = [];
 
 @NgModule({
   declarations: [LoginComponent, SignUpComponent, NavHeaderComponent, DashboardComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild(routes),
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -43,6 +44,7 @@ import { DataService } from './utils/data.service'
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
-  exports: [NavHeaderComponent, LoginComponent, SignUpComponent, DashboardComponent]
+  providers: [],
+  exports: [NavHeaderComponent, LoginComponent, SignUpComponent, DashboardComponent, RouterModule]
 })
 export class CoreModule { }

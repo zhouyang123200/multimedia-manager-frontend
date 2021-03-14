@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,10 +14,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { NavHeaderComponent } from './nav-header/nav-header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VideosModule } from '../videos/videos.module'
+import { DataService } from './utils/data.service'
 
 
 
@@ -36,7 +39,9 @@ import { VideosModule } from '../videos/videos.module'
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    VideosModule
+    VideosModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService)
   ],
   exports: [NavHeaderComponent, LoginComponent, SignUpComponent, DashboardComponent]
 })

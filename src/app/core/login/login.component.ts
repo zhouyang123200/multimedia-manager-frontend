@@ -22,10 +22,7 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login('user', 'passwd').subscribe(
-      token => {
-        console.log(token);
-        alert(token.access_token);
-      }
+      // if success don't handle anything, else raise error info user
     )
   }
 

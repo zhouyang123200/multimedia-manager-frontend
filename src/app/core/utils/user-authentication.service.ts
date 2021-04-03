@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BrowserStorageService } from './browser-storage.service';
 import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators'
+import { tap, map, catchError } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,9 @@ export class UserAuthenticationService {
       map(tokenObj => tokenObj.access_token),
       tap(token => {
         this.browserStorageService.set('access_token', token);
+      }),
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
       })
     );
   }

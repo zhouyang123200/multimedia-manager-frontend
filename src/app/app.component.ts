@@ -17,8 +17,10 @@ export class AppComponent {
     ) {}
 
   ngOnInit() {
-    this.isAuthenticated = this.userAuthService.checkLogin();
+    // this.isAuthenticated = this.userAuthService.checkLogin();
+    this.isAuthenticated = true;
     console.log(`isAuth: ${this.isAuthenticated}`);
-    this.router.navigate(['/login']);
+    if (!this.isAuthenticated)
+      this.router.navigate(['/login']);
   }
 }

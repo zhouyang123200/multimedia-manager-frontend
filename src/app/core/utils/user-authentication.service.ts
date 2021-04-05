@@ -1,20 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BrowserStorageService } from './browser-storage.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators'
+
+export interface IAuthStatus {
+  isAuthenticated: boolean
+  userId: string
+}
+
+export interface IAuthService {
+  readonly authStatus$: BehaviorSubject<IAuthStatus>
+  login(username: string, passwd: string): Observable<void>
+  logout(clearToken?: boolean): void
+  getToken(): string
+}
+
+export interface IServerAuthResponse {
+  accessToken: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthenticationService {
+export class UserAuthenticationService implements IAuthService {
 
   private loginUrl = 'api/authtoken'
+  authStatus$: BehaviorSubject<IAuthStatus>;
 
   constructor(
     private browserStorageService: BrowserStorageService,
     private http: HttpClient
     ) { }
+
+  getToken(): string {
+    throw new Error('Method not implemented.');
+  }
 
   checkLogin():boolean {
     let accsess_token = this.browserStorageService.get('accsess_token');
@@ -30,10 +51,11 @@ export class UserAuthenticationService {
       map(tokenObj => tokenObj.access_token),
       tap(token => {
         this.browserStorageService.set('access_token', token);
-      }),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
       })
     );
+  }
+
+  logout(clearToken?: boolean): void {
+    throw new Error('Method not implemented.');
   }
 }

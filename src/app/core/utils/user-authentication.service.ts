@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BrowserStorageService } from './browser-storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators'
+import { sign } from 'fake-jwt-sign'
 
 export interface IAuthStatus {
   isAuthenticated: boolean
@@ -20,10 +21,28 @@ export interface IServerAuthResponse {
   accessToken: string
 }
 
+export abstract class AuthService implements IAuthService {
+  authStatus$: BehaviorSubject<IAuthStatus>;
+
+  login(username: string, passwd: string): Observable<void> {
+    throw new Error('Method not implemented.');
+  }
+
+  logout(clearToken?: boolean): void {
+    throw new Error('Method not implemented.');
+  }
+
+  getToken(): string {
+    throw new Error('Method not implemented.');
+  }
+
+  protected abstract authProvider(username:string, passwd: string): Observable<IServerAuthResponse>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthenticationService implements IAuthService {
+export class InMemoryAuthService extends AuthService implements IAuthService {
 
   private loginUrl = 'api/authtoken'
   authStatus$: BehaviorSubject<IAuthStatus>;
@@ -31,7 +50,16 @@ export class UserAuthenticationService implements IAuthService {
   constructor(
     private browserStorageService: BrowserStorageService,
     private http: HttpClient
-    ) { }
+    ) {
+      super();
+      console.warn(
+        "You're using the InMemoryAuthService. Do not use this service in production."
+      )
+    }
+
+  protected authProvider(username: string, passwd: string): Observable<IServerAuthResponse> {
+    throw new Error('Method not implemented.');
+  }
 
   getToken(): string {
     throw new Error('Method not implemented.');
@@ -58,4 +86,28 @@ export class UserAuthenticationService implements IAuthService {
   logout(clearToken?: boolean): void {
     throw new Error('Method not implemented.');
   }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserAuthenticationService extends AuthService implements IAuthService {
+  authStatus$: BehaviorSubject<IAuthStatus>;
+
+  login(username: string, passwd: string): Observable<void> {
+    throw new Error('Method not implemented.');
+  }
+
+  logout(clearToken?: boolean): void {
+    throw new Error('Method not implemented.');
+  }
+
+  getToken(): string {
+    throw new Error('Method not implemented.');
+  }
+
+  protected authProvider(username: string, passwd: string): Observable<IServerAuthResponse> {
+    throw new Error('Method not implemented.');
+  }
+
 }

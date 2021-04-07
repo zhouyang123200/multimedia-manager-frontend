@@ -87,3 +87,27 @@ export class InMemoryAuthService extends AuthService implements IAuthService {
     throw new Error('Method not implemented.');
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserAuthenticationService extends AuthService implements IAuthService {
+  authStatus$: BehaviorSubject<IAuthStatus>;
+
+  login(username: string, passwd: string): Observable<void> {
+    throw new Error('Method not implemented.');
+  }
+
+  logout(clearToken?: boolean): void {
+    throw new Error('Method not implemented.');
+  }
+
+  getToken(): string {
+    throw new Error('Method not implemented.');
+  }
+
+  protected authProvider(username: string, passwd: string): Observable<IServerAuthResponse> {
+    throw new Error('Method not implemented.');
+  }
+
+}

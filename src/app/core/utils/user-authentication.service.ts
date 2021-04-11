@@ -30,7 +30,23 @@ export abstract class AuthService implements IAuthService {
   ) {}
 
   login(username: string, passwd: string): Observable<void> {
-    throw new Error('Method not implemented.');
+    const userInfo = {
+      username,
+      passwd
+    };
+    const loginResponse$ =  this.authProvider(username, passwd).pipe(
+      map(tokenObj => tokenObj.accessToken),
+      map(token => {
+        this.browserStorageService.set('jwt', token);
+      })
+    );
+    // loginResponse$.subscribe({
+    //   error: (error) => {
+    //     this.logout();
+    //     return throwError(error);
+    //   }
+    // });
+    return loginResponse$;
   }
 
   logout(clearToken?: boolean): void {
@@ -88,26 +104,6 @@ export class InMemoryAuthService extends AuthService implements IAuthService {
     throw new Error('Method not implemented.');
   }
 
-  login(username: string, passwd: string): Observable<any> {
-    const userInfo = {
-      username,
-      passwd
-    };
-    const logResponse$ =  this.authProvider(username, passwd).pipe(
-      map(tokenObj => tokenObj.accessToken),
-      tap(token => {
-        this.browserStorageService.set('access_token', token);
-      })
-    );
-    logResponse$.subscribe({
-      error: (error) => {
-        this.logout();
-        return throwError(error);
-      }
-    })
-    return logResponse$;
-  }
-
   logout(clearToken?: boolean): void {
     throw new Error('Method not implemented.');
   }
@@ -125,10 +121,6 @@ export class UserAuthenticationService extends AuthService implements IAuthServi
     ) {
       super(browserStorageService);
     }
-
-  login(username: string, passwd: string): Observable<void> {
-    throw new Error('Method not implemented.');
-  }
 
   logout(clearToken?: boolean): void {
     throw new Error('Method not implemented.');

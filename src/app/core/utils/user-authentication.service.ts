@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
 import { sign } from 'fake-jwt-sign';
 import { environment } from '../../../environments/environment';
+import { HttpClientBackendService } from 'angular-in-memory-web-api';
 
 export interface IAuthStatus {
   isAuthenticated: boolean
@@ -22,6 +23,9 @@ export interface IServerAuthResponse {
   accessToken: string
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export abstract class AuthService implements IAuthService {
   authStatus$: BehaviorSubject<IAuthStatus>;
 
@@ -89,8 +93,8 @@ export class InMemoryAuthService extends AuthService implements IAuthService {
   protected authProvider(username: string, passwd: string): Observable<IServerAuthResponse> {
     const authStatus = {
       isAuthenticated: true,
-      userId: 1
-    } as unknown as IAuthStatus;
+      userId: '1'
+    } as IAuthStatus;
     const authResponse = {
       accessToken: sign(authStatus, 'secret', {
         expiresIn: '1h',
@@ -137,4 +141,13 @@ export class UserAuthenticationService extends AuthService implements IAuthServi
     })
   }
 
+}
+
+export function authFactory(bs: BrowserStorageService, http: HttpClient): IAuthService {
+  switch (environment.authMode) {
+    case 'prod':
+      return new UserAuthenticationService(bs, http);
+    default:
+      return new InMemoryAuthService(bs, http);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router'
-import { UserAuthenticationService } from "@utils/user-authentication.service";
+import { AuthService } from "@utils/user-authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router:Router,
-    private authService: UserAuthenticationService
+    private authService: AuthService
   ) {}
 
   onSubmit() {

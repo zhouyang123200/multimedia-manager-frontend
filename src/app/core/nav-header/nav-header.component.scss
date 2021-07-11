@@ -1,0 +1,32 @@
+@mixin button-theme($theme) {
+    $multimedia-manager-frontend-primary: map-get($theme, primary);
+    $multimedia-manager-frontend-accent: map-get($theme, accent);
+    $multimedia-manager-frontend-warn: map-get($theme, warn);
+
+    .nav-logo img {
+        width: 30%;
+        height: 30%;
+        position: relative;
+        float: left;
+        left: 40px;
+    }
+
+    .nav-search {
+        margin-left: 45px;
+    }
+
+    .nav-search input {
+        height: 35px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .nav-search button {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 40px;
+        background-color: mat-color($multimedia-manager-frontend-primary,400);
+    }
+}

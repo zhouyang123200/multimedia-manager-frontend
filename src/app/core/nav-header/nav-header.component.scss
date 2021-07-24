@@ -21,6 +21,7 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         outline: none;
+        padding-left: 15px;
     }
 
     .nav-search button {
@@ -43,21 +44,23 @@
 
     .nav-block li a {
         text-decoration: none;
-        color: white;
     }
 
     .nav-item {
         display: inline-block;
         padding: 14px 25px;
         cursor: pointer;
+        color: #000;
     }
 
     .nav-item:hover {
         background-color: mat-color($multimedia-manager-frontend-primary, 200);
+        color:blanchedalmond;
     }
 
     .selected {
         background-color: mat-color($multimedia-manager-frontend-primary, 800);
+        color:blanchedalmond;
     }
 
     .spacer-1 {

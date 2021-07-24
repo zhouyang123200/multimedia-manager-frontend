@@ -1,0 +1,28 @@
+.videos-container {
+    padding: 5px 10px;
+    height: 94%;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.controller {
+    flex: 1 0 auto;
+    background-color: #f1f1ff;
+    padding: 15px 20px;
+}
+
+.controller.side-bar {
+    height: auto;
+}
+
+.video-list {
+    flex: 7 0 auto;
+    background-color: cadetblue;
+    padding: 15px 20px;
+}
+
+.video-card {
+    width: 150px;
+}

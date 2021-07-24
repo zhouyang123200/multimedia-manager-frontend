@@ -43,11 +43,12 @@
 
     .nav-block li a {
         text-decoration: none;
+        color: white;
     }
 
     .nav-item {
         display: inline-block;
-        padding: 15px 25px;
+        padding: 14px 25px;
         cursor: pointer;
     }
 
@@ -69,8 +70,8 @@
 
     .avatar {
         vertical-align: middle;
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
         border-radius: 50%;
     }
 }

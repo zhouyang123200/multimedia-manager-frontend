@@ -13,8 +13,19 @@
     padding: 15px 20px;
 }
 
-.controller.side-bar {
+.controller .side-bar {
     height: auto;
+    ul {
+        list-style-type: none;
+        li {
+            padding: 5px 0px;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(61, 51, 51);
+            }
+        }
+
+    }
 }
 
 .video-list {

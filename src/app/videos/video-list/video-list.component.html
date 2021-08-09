@@ -3,21 +3,15 @@
         <div class="side-bar">controller</div>
     </div>
     <div class="video-list">
-        <mat-card class="video-card">
-            <img mat-card-image src="assets/images/150.png" alt="Photo of a Shiba Inu">
-            <p>video</p>
-        </mat-card>
-        <mat-card class="video-card">
-            <img mat-card-image src="assets/images/150.png" alt="Photo of a Shiba Inu">
-            <p>video</p>
-        </mat-card>
-        <mat-card class="video-card">
-            <img mat-card-image src="assets/images/150.png" alt="Photo of a Shiba Inu">
-            <p>video</p>
-        </mat-card>
-        <mat-card class="video-card">
-            <img mat-card-image src="assets/images/150.png" alt="Photo of a Shiba Inu">
-            <p>video</p>
-        </mat-card>
+
+        <mat-grid-list cols="7" rowHeight="0.8:1" gutterSize="15px">
+            <mat-grid-tile *ngFor="let num of [].constructor(30)">
+                <mat-card class="video-card">
+                    <img mat-card-image src="assets/images/150.png" alt="Photo of a Shiba Inu">
+                    <p>video_{{num}}</p>
+                </mat-card>
+            </mat-grid-tile>
+
+        </mat-grid-list>
     </div>
 </div>
